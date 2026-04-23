@@ -61,7 +61,7 @@ const Project = () => {
     const fetchTasks = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/tasks/${id}`
+          `${import.meta.env.VITE_API_URL}/api/tasks/${id}`
         )
         setTasks(res.data)
       } catch (err) {
@@ -74,7 +74,7 @@ const Project = () => {
   const handleAddTask = async (taskData) => {
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/tasks",
+        `${import.meta.env.VITE_API_URL}/api/tasks`,
         {
           ...taskData,
           projectId: id,
@@ -116,7 +116,7 @@ const Project = () => {
   const handleUpdateProject = async () => {
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/projects/${id}`,
+        `${import.meta.env.VITE_API_URL}/api/projects/${id}`,
         form
       )
       setProject(res.data)
@@ -130,7 +130,7 @@ const Project = () => {
     const fetchProject = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/projects/${id}`
+          `${import.meta.env.VITE_API_URL}/api/projects/${id}`
         )
         setProject(res.data)
       } catch (err) {
@@ -380,7 +380,7 @@ const Project = () => {
 
                     try {
                       const res = await axios.put(
-                        `http://localhost:5000/api/tasks/${task._id}`,
+                        `${import.meta.env.VITE_API_URL}/api/tasks/${task._id}`,
                         { status: newStatus }
                       )
 

@@ -14,11 +14,11 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const projRes = await axios.get("http://localhost:5000/api/projects", {
+        const projRes = await axios.get(`${import.meta.env.VITE_API_URL}/api/projects`, {
           params: { orgId: organization?.id }
         });
 
-        const taskRes = await axios.get("http://localhost:5000/api/tasks", {
+        const taskRes = await axios.get(`${import.meta.env.VITE_API_URL}/api/tasks`, {
           params: { orgId: organization?.id }
         });
 

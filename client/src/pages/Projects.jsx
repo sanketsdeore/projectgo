@@ -27,7 +27,7 @@ const Projects = () => {
                 if (!orgId) return;
 
                 const res = await axios.get(
-                    `http://localhost:5000/api/projects?orgId=${orgId}`
+                    `${import.meta.env.VITE_API_URL}/api/projects?orgId=${orgId}`
                 );
                 setProjects(res.data)
             } catch (err) {
@@ -40,7 +40,7 @@ const Projects = () => {
     const handleCreateProject = async (projectData) => {
         try {
             const res = await axios.post(
-                "http://localhost:5000/api/projects",
+                `${import.meta.env.VITE_API_URL}/api/projects`,
                 {
                     ...projectData,
                     orgId: organization?.id
