@@ -7,11 +7,14 @@ const taskSchema = new mongoose.Schema({
     status: String,
     assignee: String,
     dueDate: String,
-
+    orgId: {
+        type: String,
+        required: true
+    },
     projectId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Project"
     }
-}, {timestamps: true})
+}, { timestamps: true })
 
 export default mongoose.model("Task", taskSchema)
