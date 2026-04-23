@@ -40,6 +40,8 @@ const Dashboard = () => {
   const completedProjects = projects.filter(p => p.status === "Completed").length;
 
   const { user } = useUser();
+  console.log(user?.id)
+  console.log(tasks)
   const myTasks = tasks.filter(
     t => t.assignee === user?.id
   ).length;
@@ -125,27 +127,26 @@ const Dashboard = () => {
           <h2 className="text-md font-semibold mb-4 border-b pb-4">My Tasks</h2>
           <div className="space-y-2">
             {tasks.filter(
-    t => t.assignee === user?.id
-  ).map((task) => (
-            <div key={task._id} className="p-1">
-              <p className="text-sm font-semibold">
-                {task.title}
-              </p>
-              <p 
-              className={`text-sm ${
-                task.dueDate &&
-                new Date(task.dueDate) < new Date() &&
-                task.status !== "Done"
-                ? "text-red-500"
-                : "text-gray-500"
-              }`}
-              >
-                {task.dueDate
-                ? new Date(task.dueDate).toLocaleDateString()
-                : "No due date"
-                }
-              </p>
-            </div>
+              t => t.assignee === user?.id
+            ).map((task) => (
+              <div key={task._id} className="p-1">
+                <p className="text-sm font-semibold">
+                  {task.title}
+                </p>
+                <p
+                  className={`text-sm ${task.dueDate &&
+                      new Date(task.dueDate) < new Date() &&
+                      task.status !== "Done"
+                      ? "text-red-500"
+                      : "text-gray-500"
+                    }`}
+                >
+                  {task.dueDate
+                    ? new Date(task.dueDate).toLocaleDateString()
+                    : "No due date"
+                  }
+                </p>
+              </div>
             ))}
           </div>
         </div>
