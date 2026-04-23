@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { OrganizationSwitcher, SignedIn, SignedOut, UserButton } from '@clerk/clerk-react'
-import WorkspaceDropdown from './WorkspaceDropdown'
 
 const Navbar = () => {
   return (
