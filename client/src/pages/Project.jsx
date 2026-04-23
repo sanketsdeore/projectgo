@@ -373,7 +373,6 @@ const Project = () => {
                   {task.priority}
                 </span>
                 <select
-                  disabled={!isAdmin}
                   value={task.status}
                   onChange={async (e) => {
                     const newStatus = e.target.value
