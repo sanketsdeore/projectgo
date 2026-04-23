@@ -40,8 +40,8 @@ const Dashboard = () => {
   const completedProjects = projects.filter(p => p.status === "Completed").length;
 
   const { user } = useUser();
-  console.log(user?.id)
-  console.log(tasks)
+  {console.log(user?.id)
+  console.log(tasks)}
   const myTasks = tasks.filter(
     t => t.assignee === user?.id
   ).length;
